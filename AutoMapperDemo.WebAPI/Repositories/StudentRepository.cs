@@ -17,7 +17,7 @@ namespace AutoMapperDemo.WebAPI.Repositories
            return _studentContext.Students.ToList();
         }
 
-        public Student GetStudentById(int id)
+        public Student GetStudentById(long id)
         {
             return _studentContext.Students.FirstOrDefault(s => s.StudentId == id);
         }
@@ -45,7 +45,5 @@ namespace AutoMapperDemo.WebAPI.Repositories
         {
             _studentContext.SaveChanges();
         }
-
-
     }
 }

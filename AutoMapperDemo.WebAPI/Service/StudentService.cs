@@ -18,7 +18,7 @@ namespace AutoMapperDemo.WebAPI.Service
         }
 
 
-        public Student GetStudentById(int id)
+        public Student GetStudentById(long id)
         {
             return _studentRepository.GetStudentById(id);
         }

@@ -21,7 +21,7 @@ namespace AutoMapperDemo.WebAPI.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("getall/students")]
+        [HttpGet("getall")]
         public IActionResult GetAllStudents() 
         {
             var students = _studentService.GetAllStudents();
@@ -29,7 +29,7 @@ namespace AutoMapperDemo.WebAPI.Controllers
             return Ok(students);
         }
 
-        [HttpPost("create/student")]
+        [HttpPost("create")]
         public IActionResult CreateStudent(StudentDto studentDto) 
         {
             var student = _mapper.Map<StudentDto, Student>(studentDto);
@@ -42,8 +42,8 @@ namespace AutoMapperDemo.WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpPut("update/student")]
-        public IActionResult UpdateStudent(int id, StudentDto studentDto)
+        [HttpPut("update/{id}")]
+        public IActionResult UpdateStudent(long id, StudentDto studentDto)
         {
             var student = _studentService.GetStudentById(id);
             if (student == null)
@@ -61,8 +61,8 @@ namespace AutoMapperDemo.WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpGet("getstudentby/id")]
-        public IActionResult GetStudentById(int id)
+        [HttpGet("getbyid/{id}")]
+        public IActionResult GetStudentById([FromRoute(Name = "id")] long id)
         {
             var student = _studentService.GetStudentById(id);
             if (student == null)
@@ -74,8 +74,8 @@ namespace AutoMapperDemo.WebAPI.Controllers
             return Ok(studentDto);
         }
 
-        [HttpDelete("delete/student")]
-        public IActionResult DeleteStudent(int id)
+        [HttpDelete("delete/{id}")]
+        public IActionResult DeleteStudent([FromRoute(Name = "id")] long id)
         {
             var student = _studentService.GetStudentById(id);
             if (student == null)
