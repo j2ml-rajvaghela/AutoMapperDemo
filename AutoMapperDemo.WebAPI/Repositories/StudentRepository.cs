@@ -19,7 +19,7 @@ namespace AutoMapperDemo.WebAPI.Repositories
 
         public Student GetStudentById(long id)
         {
-            return _studentContext.Students.FirstOrDefault(s => s.StudentId == id);
+            return _studentContext.Students.FirstOrDefault(s => s.StudentID == id);
         }
 
 

@@ -8,8 +8,8 @@ namespace AutoMapperDemo.WebAPI.Mappers
     {
         public MappingProfile()
         {
-            CreateMap<Student, StudentDto>();
-            CreateMap<StudentDto, Student>();
+            CreateMap<Student, StudentDTO>();
+            CreateMap<StudentDTO, Student>();
         }
     }
 }

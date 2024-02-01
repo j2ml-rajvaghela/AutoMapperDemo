@@ -9,10 +9,10 @@ namespace AutoMapperDemo.WebAPI.Configuration
         public void Configure(EntityTypeBuilder<Student> builder)
         {
             builder.ToTable("studentdemo_automapper");
-            builder.HasKey(x => x.StudentId);
+            builder.HasKey(x => x.StudentID);
 
             builder
-                .Property(x => x.StudentId)
+                .Property(x => x.StudentID)
                 .HasColumnName("student_id")
                 .HasColumnType("bigint")
                 .ValueGeneratedOnAdd()

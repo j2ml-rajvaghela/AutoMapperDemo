@@ -2,7 +2,7 @@
 {
     public class Student
     {
-        public long StudentId { get; set; }
+        public long StudentID { get; set; }
         public string?  Name { get; set; }
         public int Age { get; set; }
     }

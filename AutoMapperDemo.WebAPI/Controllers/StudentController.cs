@@ -30,9 +30,9 @@ namespace AutoMapperDemo.WebAPI.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult CreateStudent(StudentDto studentDto) 
+        public IActionResult CreateStudent(StudentDTO studentDto) 
         {
-            var student = _mapper.Map<StudentDto, Student>(studentDto);
+            var student = _mapper.Map<StudentDTO, Student>(studentDto);
             _studentService.AddStudent(student);
             _studentService.SaveChanges();
 
@@ -43,7 +43,7 @@ namespace AutoMapperDemo.WebAPI.Controllers
         }
 
         [HttpPut("update/{id}")]
-        public IActionResult UpdateStudent(long id, StudentDto studentDto)
+        public IActionResult UpdateStudent(long id, StudentDTO studentDto)
         {
             var student = _studentService.GetStudentById(id);
             if (student == null)
@@ -70,7 +70,7 @@ namespace AutoMapperDemo.WebAPI.Controllers
                 return NotFound();
             }
 
-            var studentDto = _mapper.Map<Student, StudentDto>(student);
+            var studentDto = _mapper.Map<Student, StudentDTO>(student);
             return Ok(studentDto);
         }
 
